@@ -1,8 +1,0 @@
-/* Minimal fallback styles */
-body{font-family:Helvetica,Arial,sans-serif;color:#222;margin:0;padding:0}
-.container{max-width:980px;margin:0 auto;padding:1rem}
-.site-header{background:#f8f8f8;border-bottom:1px solid #eaeaea}
-.brand{display:flex;align-items:center;gap:1rem}
-.logo{width:72px;height:auto}
-.primary-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1rem}
-.btn{background:#007acc;color:#fff;padding:.5rem 1rem;border-radius:4px;text-decoration:none}
