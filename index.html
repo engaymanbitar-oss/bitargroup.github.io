@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>BitarGroup — Construction & Engineering</title>
     <meta name="description" content="BitarGroup — Construction and engineering services specializing in sustainable building, renovation, and project management.">
-    <link rel="canonical" href="https://www.bitargroup.com/">
+    <link rel="canonical" href="https://bitargroup.github.io/">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -117,72 +117,3 @@
             </form>
         </section>
     </main>
-
-    <footer class="site-footer">
-        <div class="container footer-inner">
-            <p>&copy; 2025 BitarGroup. All rights reserved.</p>
-            <nav class="footer-nav">
-                <a href="#privacy">Privacy</a>
-                <a href="#terms">Terms</a>
-            </nav>
-        </div>
-    </footer>
-
-    <script>
-        // Mobile nav toggle
-        (function(){
-            const btn = document.querySelector('.nav-toggle');
-            const nav = document.getElementById('primary-navigation');
-            btn.addEventListener('click', function(){
-                const expanded = this.getAttribute('aria-expanded') === 'true';
-                this.setAttribute('aria-expanded', String(!expanded));
-                nav.classList.toggle('open');
-            });
-        })();
-        
-        // Contact form AJAX submit via Formsubmit.co
-        (function(){
-            const form = document.getElementById('contactForm');
-            const status = document.getElementById('formStatus');
-
-            form.addEventListener('submit', function(e){
-                e.preventDefault();
-
-                // Basic validation
-                if(!form.checkValidity()){
-                    status.textContent = 'Please fill out all required fields.';
-                    status.className = 'form-status error';
-                    return;
-                }
-
-                status.textContent = 'Sending...';
-                status.className = 'form-status sending';
-
-                const data = new FormData(form);
-
-                fetch(form.action, {
-                    method: 'POST',
-                    body: data,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                }).then(response => {
-                    if (response.ok) {
-                        status.textContent = 'Message sent successfully — thank you!';
-                        status.className = 'form-status success';
-                        form.reset();
-                    } else {
-                        return response.json().then(data => {
-                            throw new Error(data.message || 'Submission failed');
-                        })
-                    }
-                }).catch(err => {
-                    status.textContent = 'Sorry — there was a problem sending your message.';
-                    status.className = 'form-status error';
-                    console.error(err);
-                });
-            });
-        })();
-    </script>
-</body>
-</html>
