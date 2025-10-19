@@ -1,0 +1,54 @@
+name: Convert images to PNG
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches: [ main, master ]
+
+jobs:
+  convert:
+    name: Convert JPG to PNG and update index.html
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install ImageMagick
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
+
+      - name: Convert JPG/JPEG files to PNG
+        run: |
+          set -eu
+          changed=false
+          for f in cv/*.jpg cv/*.jpeg; do
+            if [ -f "$f" ]; then
+              png="${f%.*}.png"
+              echo "Converting $f -> $png"
+              convert "$f" "$png"
+              git add "$png"
+              # Update index.html references (replace basename only)
+              jpgname="$(basename "$f")"
+              pngname="$(basename "$png")"
+              if grep -q "$jpgname" index.html; then
+                sed -i "s|$jpgname|$pngname|g" index.html
+                git add index.html
+              fi
+              changed=true
+            fi
+          done
+
+          if [ "$changed" = true ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            if git commit -m "chore: convert jpg images to png"; then
+              git push
+            else
+              echo "No changes to commit"
+            fi
+          else
+            echo "No jpg/jpeg files found in cv/ to convert."
+          fi
