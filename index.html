@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BitarGroup — Construction & Engineering</title>
+    <meta name="description" content="BitarGroup — Construction and engineering services specializing in sustainable building, renovation, and project management.">
+    <link rel="canonical" href="https://www.bitargroup.com/">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <img src="cv/12.jpg" alt="BitarGroup Logo" class="logo">
+                <div>
+                    <h1 class="site-title">BitarGroup</h1>
+                    <p class="tagline">Construction • Engineering • renovation</p>
+                </div>
+            </div>
+            <button class="nav-toggle" aria-expanded="false" aria-controls="primary-navigation">Menu</button>
+            <nav id="primary-navigation" class="primary-nav">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-inner">
+                <h2>Delivering innovative and sustainable construction solutions</h2>
+                <p>Experienced engineers and project managers delivering commercial, residential, and infrastructure projects with quality and safety at the core.</p>
+                <p class="hero-cta"><a class="btn" href="#contact">Get a Quote</a> <a class="btn btn-outline" href="#projects">View Projects</a></p>
+            </div>
+        </section>
+
+        <section id="about" class="container section">
+            <h3>About Us</h3>
+            <h4>BitarGroup is a construction and engineering firm focused on sustainable, code-compliant designs and efficient project delivery. We combine local knowledge with international best practices.Design and analysis for buildings, foundations and structural retrofits. End-to-end delivery, scheduling, cost control and on-site supervision. Earthworks, utilities coordination and permitting support. Energy-efficient solutions and green building consultation.</h4>
+        </section>
+
+        <section id="services" class="container section">
+            <h3>Our Services</h3>
+            <div class="grid services-grid">
+                <div class="card">
+                    <h4>constructions and renovation</h4>
+                     <img src="cv/14.jpg" alt ="constructions and renovation">
+                    <p>Design and analysis for buildings, foundations and structural retrofits. scheduling, cost control and on-site supervision.</p>
+                   
+                </div>
+                <div class="card">
+                    <h4>interior Design</h4>
+                    <img src="cv/15.jpg" alt ="interior Design">
+                    <p>dicorations and furniture modern and on your budget.</p>
+                </div>
+                <div class="card">
+                    <h4>custom-designed laminate wood</h4>
+                    <img src="cv/18.jpg" alt="custom-designed laminate wood">
+                    <p>custom laminate wood, cabinet and kitchens.</p>
+                </div>
+                <div class="card">
+                    <h4>security systems</h4>
+                    <img src="cv/17.jpg" alt ="security systems">
+                    <p>All about security systems cameras, fire alarms and atumation door locks.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="container section">
+            <h3>Featured Projects</h3>
+            <div class="grid projects-grid">
+                <article class="project">
+                    <img src="cv/1.jpg" alt="Urban Skyline Tower">
+                    <h4>Urban Skyline Tower</h4>
+                    <p>A high-rise commercial building with green building certification.</p>
+                </article>
+                <!-- Placeholder: add more project entries or replace images in `cv/` -->
+            </div>
+        </section>
+
+        <section id="contact" class="container section contact-section">
+            <h3>Contact Us</h3>
+            <div class="contact-info">
+                <p><strong>Phone (Lebanon):</strong> <a href="tel:+9613970541" aria-label="Call Lebanon">+961 3 970 541</a></p>
+                <p><strong>Phone (Georgia):</strong> <a href="tel:+995501000193" aria-label="Call Georgia">+995 50 100 0193</a></p>
+                <p class="social-links"><strong>Follow:</strong>
+                    <a href="https://instagram.com/ay.bitar/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+                    <a href="https://facebook.com/ABSurvsyor" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+                </p>
+            </div>
+            <form id="contactForm" class="contact-form" action="https://formsubmit.co/eng.aymanbitar@gmail.com" method="POST">
+                <!-- Honeypot field to reduce spam (leave hidden) -->
+                <input type="text" name="_honey" style="display:none">
+                <!-- Fallback subject (Formsubmit uses your email endpoint) -->
+                <input type="hidden" name="_subject" value="New contact from BitarGroup website">
+                <div class="form-row">
+                    <label for="name">Name</label>
+                    <input id="name" name="name" type="text" required>
+                </div>
+                <div class="form-row">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" required>
+                </div>
+                <div class="form-row">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <div class="form-row">
+                    <button class="btn" type="submit">Send Message</button>
+                </div>
+                <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>&copy; 2025 BitarGroup. All rights reserved.</p>
+            <nav class="footer-nav">
+                <a href="#privacy">Privacy</a>
+                <a href="#terms">Terms</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile nav toggle
+        (function(){
+            const btn = document.querySelector('.nav-toggle');
+            const nav = document.getElementById('primary-navigation');
+            btn.addEventListener('click', function(){
+                const expanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', String(!expanded));
+                nav.classList.toggle('open');
+            });
+        })();
+        
+        // Contact form AJAX submit via Formsubmit.co
+        (function(){
+            const form = document.getElementById('contactForm');
+            const status = document.getElementById('formStatus');
+
+            form.addEventListener('submit', function(e){
+                e.preventDefault();
+
+                // Basic validation
+                if(!form.checkValidity()){
+                    status.textContent = 'Please fill out all required fields.';
+                    status.className = 'form-status error';
+                    return;
+                }
+
+                status.textContent = 'Sending...';
+                status.className = 'form-status sending';
+
+                const data = new FormData(form);
+
+                fetch(form.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        status.textContent = 'Message sent successfully — thank you!';
+                        status.className = 'form-status success';
+                        form.reset();
+                    } else {
+                        return response.json().then(data => {
+                            throw new Error(data.message || 'Submission failed');
+                        })
+                    }
+                }).catch(err => {
+                    status.textContent = 'Sorry — there was a problem sending your message.';
+                    status.className = 'form-status error';
+                    console.error(err);
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
